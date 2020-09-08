@@ -72,10 +72,14 @@ const scrollToTop = () => {
 scrollButton.addEventListener('click', scrollToTop);
 
 //search tab
-const tabs = document.querySelectorAll('input[name="search-box"]');
-const formControls = document.querySelectorAll('.form-control ');
+const tabs = document.querySelectorAll('.seach-title');
+const formControls = document.querySelectorAll('.form-control');
 
 function showFormControl() {
+	tabs.forEach((x) => {
+		x.classList.remove('--choice');
+	});
+
 	formControls.forEach((x) => {
 		x.classList.add('--hidden');
 		x.classList.remove('--show');
@@ -83,6 +87,7 @@ function showFormControl() {
 
 	formControls[this.dataset.idForm].classList.remove('--hidden');
 	formControls[this.dataset.idForm].classList.add('--show');
+	this.classList.add('--choice');
 }
 
 tabs.forEach((x) => {
@@ -130,29 +135,6 @@ new WOW().init();
 // 	});
 // });
 
-// function formatState(state) {
-// 	// if (!state.id) {
-// 	// 	return state.text;
-// 	// }
-// 	// var baseUrl = 'imgs/';
-// 	// var $state = $(
-// 	// 	'<span><img src="' +
-// 	// 		baseUrl +
-// 	// 		'/' +
-// 	// 		state.element.value.toLowerCase() +
-// 	// 		'.png" class="img-flag" /> ' +
-// 	// 		state.text +
-// 	// 		'</span>'
-// 	// );
-// 	// return $state;
-// 	console.log(state);
-// }
-
-// $('#select-img').select2({
-// 	templateResult: formatState,
-// 	templateSelection: formatState,
-// });
-
 function formatData(data) {
 	if (!data.id) {
 		return data.text.toUpperCase();
@@ -163,16 +145,21 @@ function formatData(data) {
 	if (!img) {
 		return data.text.toUpperCase();
 	} else {
-		const $result = $(`<span><img src="${img}"/></span>`);
+		const $result = $(
+			`<span>
+          <img src="${img}" />${$(data.element).text()}
+        </span>`
+		);
 
 		return $result;
 	}
 }
 
-$('#select-img').select2({
-	templateResult: formatData,
-	templateSelection: formatData,
-	minimumResultsForSearch: -1,
-	width: '100%',
-	height: '100%',
-});
+// $('#select-img').select2({
+// 	templateResult: formatData,
+// 	templateSelection: formatData,
+// 	minimumResultsForSearch: -1,
+// 	// width: '100%',
+// 	// height: '100%',
+// 	dropdownCssClass: 'myFont',
+// });

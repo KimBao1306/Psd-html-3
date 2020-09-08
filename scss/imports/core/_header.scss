@@ -4,58 +4,68 @@
 	left: 0;
 	width: 100%;
 	margin: 0 auto;
-	max-height: 14rem;
+	// max-height: 14rem;
 	z-index: 700;
 	/** Top */
 	&__top {
-		width: 100%;
-		height: 4rem;
-		padding: 0.8rem 2.2rem;
-		background: $black-bg-cl;
-		@include flex(row, space-between, center, wrap);
-		@include transition(opacity $t2);
+		background: #252525;
+		@include transition(opacity 0.5s);
 
-		& > ul {
+		.container {
+			height: 5rem;
+			@include flex(row, flex-start, center, wrap);
+		}
+
+		ul {
 			height: 100%;
 			@include flex(row, center, center);
-			li {
-				margin: 0 1.3rem;
-			}
+		}
 
-			li,
+		li {
+			margin: 0 3rem 0 0;
+		}
+
+		li,
+		a {
+			font-size: 1.2rem;
+			text-transform: capitalize;
+			color: $white-cl;
+			@include tracking(25);
+		}
+	}
+
+	&__info {
+		margin-right: 5rem;
+		li:last-child {
+			margin: 0;
+		}
+	}
+
+	&__social {
+		li {
+			width: 3.4rem;
+			height: 3.4rem;
+			margin: 0 0.3rem;
+			background: rgba($color: #000000, $alpha: 0.3);
+			margin-right: auto;
+			@include br(5px);
 			a {
-				font-size: 1.2rem;
-				text-transform: capitalize;
-				color: $white-cl;
-				@include tracking(25);
-				i {
-					margin-right: 0.7rem;
+				width: 100%;
+				height: 100%;
+				@include mid-flex;
+				@include br(inherit);
+				@include transition(color $t2);
+				&:hover {
+					color: $main-cl;
 				}
 			}
 		}
 	}
 
-	&__info {
-		margin-right: auto;
-		@include flex(row, center, center);
-	}
-
-	&__social {
-		li {
-			width: 2.4rem;
-			height: 2.4rem;
-			margin: 0 0.8rem;
-			@include transition(transform $t2);
-			a {
-				display: block;
-			}
-			&:hover {
-				transform: translateY(-3px);
-			}
-		}
-	}
-
 	&__auth {
+		li:last-child {
+			margin: 0;
+		}
 		a {
 			@include transition(color $t2);
 			&:hover {
@@ -66,6 +76,8 @@
 
 	// User - Box
 	&__user-box {
+		margin-left: auto;
+
 		//Acc-info
 		.acc-info {
 			&-btn {
@@ -83,7 +95,7 @@
 
 			&:hover .acc-info-btn,
 			&:hover .acc-info-btn .icon {
-				color: $orange-cl;
+				color: $main-cl;
 			}
 
 			&:hover .status-desktop {
@@ -167,7 +179,7 @@
 						height: 100%;
 						max-width: 100%;
 						border-radius: 9px;
-						background-color: $orange-cl;
+						background-color: $main-cl;
 						background-image: -webkit-repeating-linear-gradient(
 							135deg,
 							transparent 0px,
@@ -196,7 +208,7 @@
 						margin-left: 10px;
 						font-weight: bold;
 						& .vnd {
-							color: $orange-cl;
+							color: $main-cl;
 						}
 					}
 				}
@@ -211,11 +223,11 @@
 				.links > a i {
 					float: right;
 					line-height: 2;
-					color: $orange-cl;
+					color: $main-cl;
 				}
 
 				.links > a:hover {
-					color: $orange-cl;
+					color: $main-cl;
 				}
 			}
 
@@ -225,7 +237,7 @@
 				width: 100%;
 				padding: 10px 0;
 				border-radius: unset;
-				background-color: $orange-cl;
+				background-color: $main-cl;
 				color: white;
 				text-align: center;
 			}
@@ -254,7 +266,7 @@
 			}
 
 			.username {
-				color: $orange-cl;
+				color: $main-cl;
 				margin-bottom: 10px;
 				text-transform: uppercase;
 				text-align: center;
@@ -276,12 +288,12 @@
 				text-align: center;
 
 				.money {
-					color: $orange-cl;
+					color: $main-cl;
 				}
 
 				.vip {
 					text-transform: uppercase;
-					color: $orange-cl;
+					color: $main-cl;
 					font-weight: bold;
 				}
 			}
@@ -299,12 +311,13 @@
 					left: 0;
 					top: 0;
 					bottom: 0;
-					background-color: $orange-cl;
+					background-color: $main-cl;
 					border-radius: 8px;
 				}
 			}
 
 			.menu-in-profile {
+				display: block;
 				list-style-type: none;
 				margin-bottom: 15px;
 				& > li:not(:last-child) {
@@ -321,7 +334,7 @@
 
 				& > li > a > i {
 					margin-right: 10px;
-					color: $orange-cl;
+					color: $main-cl;
 					font-size: 18px;
 					width: 20px;
 				}
@@ -352,25 +365,48 @@
 	/** Bottom*/
 	&__bottom {
 		width: 100%;
-		background: $white-cl;
+		background: #363636;
 		@include transition(transform $t2);
 	}
 	&__bottom-inner {
 		position: relative;
 		width: 100%;
 		height: 100%;
-		padding: 1.3rem 0 4rem;
+		padding: 2rem 0 4.85rem;
 		@include flex(row, space-between, center);
-		@include transition(padding $t2);
 	}
 	&__logo {
 		width: 100%;
 		@include flex(row, space-between, center);
-	}
-	&__browser {
-		@include flex(row, flex-start, center);
-		& div:first-child {
-			margin-right: 0.5rem;
+		div {
+			font-size: 1rem;
+			color: $white-cl;
+			@include flex(row, flex-start, center);
+			@include leading(10, 20);
+			@include tracking(25);
+			& > span > span {
+				font-size: 2rem;
+				@include leading(20, 20);
+			}
+			&:last-child {
+				flex-direction: row-reverse;
+				.header__logo-icon {
+					margin-left: 1rem;
+					margin-right: 0;
+				}
+				span {
+					text-align: right;
+				}
+			}
+		}
+		&-icon {
+			display: inline-block;
+			width: 6rem;
+			height: 6rem;
+			margin-right: 1rem;
+			border: 1px solid $border-cl;
+			@include br(100%);
+			@include mid-flex;
 		}
 	}
 	&__list {
@@ -379,16 +415,16 @@
 		left: 0;
 		width: 100%;
 		background-color: $orange-cl;
-		@include br(999px);
+		@include br(10px);
 		@include transform(translateY(-50%));
 
 		ul {
-			max-width: 80.4rem;
+			max-width: 60.3rem;
 			margin: 0 auto;
 			@include flex(row, space-between, center);
 
 			li {
-				width: calc(100% / 8);
+				width: calc(100% / 5);
 
 				&.active,
 				&:hover {
@@ -402,7 +438,7 @@
 					padding: 2rem 0.6rem;
 					width: 100%;
 
-					font-size: 1.4rem;
+					font-size: 1.6rem;
 					text-align: center;
 					color: $white-cl;
 					border-bottom: 1px solid transparent;
@@ -475,7 +511,7 @@
 		}
 		.header__bottom {
 			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-			@include transform(translateY(-4rem));
+			@include transform(translateY(-5rem));
 		}
 	}
 	/** Header - Scroll - End*/
@@ -562,37 +598,39 @@
 	/** Overlay - End */
 
 	/** Responsive */
-	@include desktop {
-		&__top {
-			ul {
-				li {
-					margin: 0 0.8rem 0 0;
-				}
-			}
-		}
-		&__social {
-			display: none !important;
-		}
-	}
+	// @include desktop {
+	// 	&__top {
+	// 		ul {
+	// 			li {
+	// 				margin: 0 0.8rem 0 0;
+	// 			}
+	// 		}
+	// 	}
+	// 	&__social {
+	// 		display: none !important;
+	// 	}
+	// }
 
 	@include tablet {
-		& {
-			// display: none;
-		}
-		&__top {
-			padding-left: 1.5rem;
-			padding-right: 1.5rem;
-		}
-		&__info,
-		&__browser {
+		&__info {
 			display: none !important;
 		}
-		&__social,
+		&__social {
+			li {
+				width: 3rem;
+				height: 3rem;
+			}
+		}
 		&__burger {
 			display: flex !important;
 		}
 		&__bottom-inner {
 			padding-bottom: 1.3rem;
+		}
+		&__logo {
+			div {
+				display: none;
+			}
 		}
 		&__list {
 			position: fixed;
@@ -600,7 +638,7 @@
 			left: 0;
 
 			width: 25rem;
-			height: 100%;
+			height: 100vh;
 
 			z-index: 750;
 			@include br(0);

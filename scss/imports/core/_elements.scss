@@ -38,69 +38,34 @@ img {
 // }
 
 .btn {
-	// max-width: 14rem;
-	// max-height: 5rem;
+	max-width: 14rem;
+	max-height: 4rem;
 	@include br(5px);
 	@include transition(background-color $t2);
 
 	a {
 		display: inline-block;
-		padding: 0.6rem;
 		width: 100%;
-		font-size: 1.8rem;
-		font-weight: bold;
-		color: $black-cl;
+		font-size: 1.4rem;
+		color: $white-cl;
 		text-align: center;
-		@include leading(18, 24);
-		@include tracking(25);
+		@include leading(14, 24);
 		@include transition(color $t2);
 	}
-	i {
-		color: $orange-cl;
-		@include transition(color $t2);
-	}
-	&.--has-bd {
-		border: 2px solid $orange-cl;
-	}
-	&.--rounded {
-		@include br(999px);
-	}
-	&.--has-bg {
-		background-color: $orange-cl;
-	}
-	&.--hover:hover {
-		background: $orange-cl;
-		a {
-			color: $white-cl;
-		}
-		i {
-			color: $white-cl;
-		}
-	}
-	// &.--blue {
-	// 	background: $blue-cl;
-	// }
-	// &.--shadow {
-	// 	box-shadow: 0 3px 8px rgba($color: $black-cl, $alpha: 0.3);
-	// }
 }
 
 .main-title {
 	line-height: 1.2;
 	font-size: 3rem;
-
-	// &.--large {
-	// 	font-size: 4.8rem;
-	// }
-	// &.--medium {
-	// 	font-size: 2.4rem;
-	// }
-	// &.--small {
-	// 	font-size: 1.4rem;
-	// }
-	// &.--gray {
-	// 	color: $gray-cl;
-	// }
+	&.--large {
+		font-size: 6rem;
+	}
+	&.--medium {
+		font-size: 3.6rem;
+	}
+	&.--small {
+		font-size: 1.8rem;
+	}
 	&.--white {
 		color: $white-cl;
 	}
